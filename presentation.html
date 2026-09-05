@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMR Presentation — World Pharmacy Week 2026</title>
+<style>
+  :root{
+    --navy:#12324A;
+    --green-dark:#0E5C42;
+    --cream:#F4F8F6;
+    --stone:#5B6B65;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:#0E1614;
+    font-family:-apple-system, 'Segoe UI', Roboto, sans-serif;
+    color:#fff;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:16px 12px 30px;
+  }
+
+  .topnav{
+    width:100%;
+    max-width:900px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:16px;
+  }
+  .back-link{
+    color:#BFE3D2;
+    text-decoration:none;
+    font-size:0.9rem;
+    font-weight:600;
+  }
+  .counter{
+    font-size:0.85rem;
+    color:#9FB3AC;
+  }
+
+  .slide-wrap{
+    width:100%;
+    max-width:900px;
+    position:relative;
+    background:#000;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 25px 60px rgba(0,0,0,0.5);
+  }
+  .slide-wrap img{
+    width:100%;
+    display:block;
+  }
+
+  .nav-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.45);
+    border:none;
+    color:#fff;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    font-size:1.3rem;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .nav-btn.prev{ left:10px; }
+  .nav-btn.next{ right:10px; }
+  .nav-btn:disabled{ opacity:0.25; }
+
+  .dots{
+    display:flex;
+    gap:7px;
+    margin-top:18px;
+  }
+  .dot{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:#3A4A44;
+    cursor:pointer;
+    transition:background 0.2s ease;
+  }
+  .dot.active{ background:#2E8B63; }
+
+  .controls-row{
+    display:flex;
+    gap:10px;
+    margin-top:22px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .ctrl-btn{
+    background:#1B2622;
+    color:#fff;
+    border:1px solid #2A3733;
+    padding:10px 18px;
+    border-radius:24px;
+    font-size:0.85rem;
+    cursor:pointer;
+    text-decoration:none;
+  }
+
+  .tip{
+    margin-top:20px;
+    font-size:0.78rem;
+    color:#7C8B85;
+    text-align:center;
+    max-width:500px;
+  }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="back-link" href="index.html">← Home</a>
+  <div class="counter" id="counter">1 / 8</div>
+</div>
+
+<div class="slide-wrap">
+  <img id="slide-img" src="web-slides/slide_01.jpg" alt="Slide 1">
+  <button class="nav-btn prev" id="prevBtn" onclick="changeSlide(-1)">‹</button>
+  <button class="nav-btn next" id="nextBtn" onclick="changeSlide(1)">›</button>
+</div>
+
+<div class="dots" id="dots"></div>
+
+<div class="controls-row">
+  <button class="ctrl-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+  <a class="ctrl-btn" href="PASTE_YOUR_DRIVE_LINK_HERE" target="_blank">📥 Download PPT</a>
+</div>
+
+<p class="tip">Swipe left/right, or tap the arrows, to move between slides. Tap anywhere on the slide to pause and read.</p>
+
+<script>
+  const total = 8;
+  let current = 1;
+  const img = document.getElementById('slide-img');
+  const counter = document.getElementById('counter');
+  const dotsWrap = document.getElementById('dots');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  for(let i=1; i<=total; i++){
+    const d = document.createElement('div');
+    d.className = 'dot' + (i===1 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsWrap.appendChild(d);
+  }
+
+  function render(){
+    img.src = 'web-slides/slide_' + String(current).padStart(2,'0') + '.jpg';
+    counter.textContent = current + ' / ' + total;
+    [...dotsWrap.children].forEach((d,idx)=>{
+      d.classList.toggle('active', idx === current-1);
+    });
+    prevBtn.disabled = current === 1;
+    nextBtn.disabled = current === total;
+  }
+
+  function changeSlide(delta){
+    const next = current + delta;
+    if(next < 1 || next > total) return;
+    current = next;
+    render();
+  }
+
+  function goTo(n){
+    current = n;
+    render();
+  }
+
+  // keyboard arrows
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowRight') changeSlide(1);
+    if(e.key === 'ArrowLeft') changeSlide(-1);
+  });
+
+  // touch swipe
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e)=>{ touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', (e)=>{
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if(dx > 50) changeSlide(-1);
+    if(dx < -50) changeSlide(1);
+  });
+
+  function toggleFullscreen(){
+    const el = document.querySelector('.slide-wrap');
+    if(!document.fullscreenElement){
+      el.requestFullscreen().catch(()=>{});
+    } else {
+      document.exitFullscreen();
+    }
+  }
+
+  render();
+</script>
+
+</body>
+</html>
