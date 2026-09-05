@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Pharmacy Week 2026 — AMR Awareness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E2438; --green-dark:#0E5C42; --green:#3AA476;
+    --red:#E24B3A; --cream:#F4F8F6; --stone:#8CA39A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{ font-family:'Poppins', sans-serif; background:var(--navy); color:#fff; }
+
+  .band{
+    background:var(--navy);
+    padding:24px 22px 0;
+    text-align:center;
+  }
+  .band .top-line{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:0.75rem; color:var(--stone); font-weight:600;
+    padding-bottom:18px; border-bottom:1px solid rgba(255,255,255,0.1);
+    margin-bottom:30px;
+  }
+  .band .top-line span:first-child{ color:#fff; }
+
+  .amr-huge{
+    font-size:clamp(4.5rem, 30vw, 8rem); font-weight:900; color:#fff;
+    line-height:0.85; letter-spacing:-0.02em;
+  }
+  .amr-huge .r{ color:var(--red); }
+  .theme{
+    margin-top:16px; font-size:1rem; color:var(--green);
+    font-weight:600; letter-spacing:0.02em;
+  }
+  .sub{
+    margin-top:14px; font-size:1.05rem; color:#fff; font-weight:700;
+    max-width:20em; margin-left:auto; margin-right:auto;
+  }
+  .sub2{ margin-top:8px; font-size:0.88rem; color:var(--stone); }
+
+  .cta{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--red); color:#fff; text-decoration:none;
+    font-weight:700; font-size:1.05rem; padding:18px 40px; border-radius:50px;
+    margin-top:34px; box-shadow:0 14px 34px rgba(226,75,58,0.35);
+  }
+
+  .white-panel{
+    background:var(--cream); color:var(--navy);
+    border-radius:32px 32px 0 0; margin-top:44px;
+    padding:38px 22px 30px;
+  }
+  .info-strip{ display:flex; flex-direction:column; gap:10px; margin-bottom:26px; }
+  .faq-item{
+    background:#fff; border-radius:12px; border-left:4px solid var(--green);
+    overflow:hidden;
+  }
+  .faq-q{
+    padding:15px 18px; font-size:0.92rem; font-weight:600;
+    display:flex; justify-content:space-between; align-items:center;
+    cursor:pointer; user-select:none;
+  }
+  .faq-q .arrow{ font-size:0.8rem; color:var(--green); transition:transform 0.25s ease; }
+  .faq-item.open .arrow{ transform:rotate(180deg); }
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height 0.3s ease;
+    font-size:0.85rem; color:#41524B; line-height:1.55;
+  }
+  .faq-a p{ padding:0 18px 16px; }
+  .faq-item.open .faq-a{ max-height:200px; }
+
+  .drive-card{
+    background:var(--navy); border-radius:18px; padding:24px 22px;
+    text-align:center; color:#fff;
+  }
+  .drive-card h3{ font-size:1rem; margin-bottom:6px; }
+  .drive-card p{ font-size:0.83rem; color:#B7C7C0; margin-bottom:16px; }
+  .drive-btn{
+    display:inline-block; background:var(--green); color:#fff; text-decoration:none;
+    font-weight:700; padding:12px 28px; border-radius:30px; font-size:0.87rem;
+  }
+
+  footer{
+    text-align:center; padding:22px 20px 6px; font-size:0.76rem; color:#7C8B85;
+  }
+</style>
+</head>
+<body>
+
+<div class="band">
+  <div class="top-line">
+    <span>World Pharmacy Week 2026</span>
+    <span>25 Sept</span>
+  </div>
+  <div class="amr-huge">AMR</div>
+  <div class="theme">સ્વસ્થ ભારત : AMR AWARENESS</div>
+  <div class="sub">અદૃશ્ય ખતરો, વાસ્તવિક અસર</div>
+  <div class="sub2">આજે દવા કામ કરે છે... પણ કાલે?</div>
+  <a class="cta" href="presentation.html">▶ Video જુઓ</a>
+</div>
+
+<div class="white-panel">
+  <div class="info-strip" id="faqList">
+    <div class="faq-item">
+      <div class="faq-q">🦠 AMR શું છે? <span class="arrow">▾</span></div>
+      <div class="faq-a"><p>જ્યારે બેક્ટેરિયા, વાયરસ કે ફૂગ દવાઓ સામે ટકી રહેવાની ક્ષમતા મેળવે છે, ત્યારે સામાન્ય ચેપની સારવાર પણ મુશ્કેલ અને મોંઘી બની જાય છે.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">📈 કેવી રીતે ફેલાય છે? <span class="arrow">▾</span></div>
+      <div class="faq-a"><p>સ્વ-દવા, અધૂરો કોર્સ, ખોટી માત્રા, અને દવાની આપ-લે — આ રોજિંદી આદતો AMR ને ઝડપથી વધારે છે.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">💊 ફાર્માસિસ્ટ શું કરી શકે? <span class="arrow">▾</span></div>
+      <div class="faq-a"><p>પ્રિસ્ક્રિપ્શન વગર એન્ટિબાયોટિક ન આપવી, અને દર્દીને દવાના યોગ્ય ઉપયોગ વિશે માર્ગદર્શન આપવું.</p></div>
+    </div>
+  </div>
+
+  <div class="drive-card">
+    <h3>📥 સંપૂર્ણ ફાઈલ ડાઉનલોડ કરો</h3>
+    <p>PPT ડાઉનલોડ કરવા માટે Google Drive પર જાઓ</p>
+    <a class="drive-btn" href="https://drive.google.com/file/d/1yaATqtAf2K3G1sROkXW3-wDRPuBjiDBH/view?usp=drivesdk" target="_blank">Drive પર ખોલો</a>
+  </div>
+</div>
+
+<footer>
+  This page collects no personal data and uses no cookies or trackers.<br>
+  એક જવાબદાર પસંદગી, એક સ્વસ્થ ભવિષ્ય.
+</footer>
+
+</body>
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</html>
